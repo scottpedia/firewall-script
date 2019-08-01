@@ -1,4 +1,3 @@
-#!/usr/local/homebrew/bin/python3
 import boto3
 import sys
 try:
@@ -9,8 +8,9 @@ except ImportError:
 IPIFY_API_URL = 'https://api.ipify.org'
 SECURITY_GROUP_ID = 'your-security-group-id'
 SECURITY_GROUP_NAME = 'your-security-group-name'
+SECURITY_GROUP_REGION = 'aws-region'
 
-nsg = boto3.resource('ec2', region_name='ap-southeast-1').SecurityGroup(SECURITY_GROUP_ID)
+nsg = boto3.resource('ec2', region_name=SECURITY_GROUP_REGION).SecurityGroup(SECURITY_GROUP_ID)
 public_ip_address = None
 to_delete = False
 
